@@ -1,9 +1,57 @@
-import "./App.css";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./components/Home/Home";
+import Layout from "./Layout/Layout";
+import Contact from "./components/Contact/Contact";
+import About from "./components/About/About";
+import User from "./components/User/User";
 
 function App() {
+  // First way to use router
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Layout />,
+  //     children: [
+  //       {
+  //         path: "",
+  //         element: <Home />,
+  //       },
+  //       {
+  //         path: "contact-us",
+  //         element: <Contact />,
+  //       },
+  //       {
+  //         path: "about",
+  //         element: <About />,
+  //       },
+  //       {
+  //         path: "user/:userid",
+  //         element: <User />,
+  //       },
+  //     ],
+  //   },
+  // ]);
+
+  // Second way to use router
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route path="" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact-us" element={<Contact />} />
+        <Route path="user/:userid" element={<User />} />
+      </Route>
+    )
+  );
+
   return (
     <>
-      <h1>Hello World</h1>
+      <RouterProvider router={router} />
     </>
   );
 }
