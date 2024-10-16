@@ -9,6 +9,7 @@ import Layout from "./Layout/Layout";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import User from "./components/User/User";
+import Github, { githubInfoLoader } from "./components/Github/Github";
 
 function App() {
   // First way to use router
@@ -44,6 +45,7 @@ function App() {
         <Route path="" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
+        <Route path="github" element={<Github />} loader={githubInfoLoader} />
         <Route path="user/:userid" element={<User />} />
       </Route>
     )
