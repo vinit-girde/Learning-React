@@ -1,5 +1,5 @@
 function App() {
-  return <>Hello World</>;
+  return <>Learn Redux toolkit</>;
 }
 
 export default App;
