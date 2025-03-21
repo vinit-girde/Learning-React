@@ -12,8 +12,6 @@ const Joke = () => {
     setError(null);
     try {
       const data = await getJoke();
-      setLoading(false);
-      count++;
       setJoke(data.joke);
     } catch (err) {
       setError(err);
