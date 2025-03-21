@@ -10,5 +10,21 @@ const getData = async () => {
     return error;
   }
 };
-
-export { getData };
+// Function to call joke API with headers
+const getJoke = async () => {
+  let url = `https://icanhazdadjoke.com/`;
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    // Handle the error appropriately.
+    console.error("Error fetching joke:", error);
+    // Rethrow the error to be caught in the component
+    throw error;
+  }
+};
+export { getData, getJoke };
